@@ -28,7 +28,7 @@ npm run start
 
 ## Answers to the questions
 
-```javascript
+
 1.	What plugins or extensions are best suited in the Angular + PrimeNG
 Answer:
     Angular Schematics - create components via command,
@@ -79,4 +79,4 @@ Answer:
 
 
 
-```
+
