@@ -38,7 +38,7 @@ export class NodeService {
     };
   };
 
-
+      
   getNodes(): Observable<{ nodes: TreeNode<Entity>[], types: string[] }> {
     const typesSet: Set<string> = new Set();
     return this._httpClient.get<{ entities: Entity[] }>('http://localhost:3000').pipe(

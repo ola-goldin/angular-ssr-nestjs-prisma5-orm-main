@@ -7,6 +7,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+//All entities are restricted to these types. Sensor is also a type bacause it can also have a parent.
 enum TypeName {
   Site
   Zone
