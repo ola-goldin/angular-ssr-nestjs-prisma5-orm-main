@@ -1,0 +1,32 @@
+<p-tree #tree [value]="filteredNodes" class="w-full md:w-50rem lg:w-50rem xl:w-50rem flex justify-content-center"
+  selectionMode="checkbox" [draggableNodes]="true"  [droppableNodes]="true" draggableScope="self" droppableScope="self"
+  [filter]="true" filterBy="label,data.cameraLabel,data.connectionLabel" filterMode="strict" (onFilter)="reset()"
+  filterPlaceholder="Search">
+  <ng-template pTemplate="header">
+    <div class="p-tree-filter-container">
+      <p-dropdown [options]="types"  [showClear]="true"  (onChange)="searchParent()" [(ngModel)]="selectedNode" 
+        [style]="{width:'100%'}">
+        <ng-template pTemplate="selectedItem">
+          <span>
+            <i class="pi pi-filter" style="margin-right: .5em;"></i>
+            {{ selectedNode ? selectedNode : 'Select Main Type' }}
+          </span>
+        </ng-template>
+      </p-dropdown>
+    </div>
+  </ng-template>
+  <ng-template let-node pTemplate="default">
+    <div [ngClass]="{'flex-column': isMobile}" class="w-full flex justify-content-start">
+      <div [ngClass]="{'col-5': node.data.connection !== null && !isMobile, 'col-12': node.data.connection == null || isMobile}">
+        <b>{{ node.label }}</b><br>
+        <div *ngIf="node.data.camera">{{ node.data.camera.name }}</div>
+      </div>
+      <div [ngClass]="{'col-8':!isMobile, 'col-12': isMobile, 'pb-0' :isMobile}">
+        <p-button *ngIf="node.data.camera?.connection !== null" size="small" [rounded]="true"
+          [severity]="node.data.cameraLabel && node.data.camera?.connection ? 'success' : 'warning'" [label]="node.data.connectionLabel"
+          icon="pi pi-arrow-right-arrow-left">
+        </p-button>
+      </div>
+    </div>
+  </ng-template>
+</p-tree>

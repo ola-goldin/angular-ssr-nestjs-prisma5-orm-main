@@ -1,0 +1,27 @@
+<div class="card">
+  <p-panel [toggleable]="true">
+    <ng-template pTemplate="header">
+      <div class="flex align-items-center gap-2">
+
+        <h2 class="font-bold text-muted">
+          {{ sharedDataervice.currentTitle$ | async }}
+        </h2>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="footer">
+      <div class="flex flex-wrap align-items-center justify-content-between flex-row-reverse gap-3">
+        <div class="flex align-items-center gap-2">
+          <p-button [icon]="toggle ? 'pi pi-window-minimize' : 'pi pi-window-maximize'" (click)="toggle = !toggle"
+            [rounded]="true" [text]="true" />
+        </div>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="icons">
+      <button class="p-panel-header-icon p-link mr-2" (click)="menu.toggle($event)">
+        <span class="pi pi-cog"></span>
+      </button>
+      <p-menu #menu id="config_menu" [model]="items" [popup]="true" />
+    </ng-template>
+    <router-outlet></router-outlet>
+  </p-panel>
+</div>

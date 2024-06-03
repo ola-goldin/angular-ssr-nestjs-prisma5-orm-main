@@ -1,0 +1,38 @@
+::ng-deep.p-tree {
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -0.5rem;
+    margin-left: -0.5rem;
+    margin-top: -0.5rem;
+
+    .p-tree-filter-container {
+        flex: 0 0 auto;
+        padding: 0.5rem;
+        width: 50%;
+        .p-tree-filter-icon{
+            right: 1.5rem;
+        }
+    }
+
+    .p-treenode-content {
+        padding: 0;
+    }
+
+    .p-tree-wrapper {
+        width: 100%;
+    }
+}
+
+/* Media query for mobile devices */
+@media only screen and (max-width: 767px) {
+    ::ng-deep .p-tree {
+        .p-tree-filter-container {
+            width: 100%;
+           padding: 0;
+           .p-tree-filter-icon{
+            right: 1rem;
+        }
+        }
+    }
+}
